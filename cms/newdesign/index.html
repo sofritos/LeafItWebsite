@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+	<title>CMS V2.0</title>
+	<link href='style.css' rel='stylesheet'/>
+	<script src='jquery.js'></script>
+	<script>
+		$(document).ready(function(){
+			
+			$('.boxes').click(function(){
+				
+				AnimateRotate(180);
+				
+				//$('.boxes').fadeIn(0).delay(500).fadeOut(0);
+				//$('h1').fadeIn(0).delay(500).fadeOut(0);
+				
+			});
+		
+		});
+		
+		function AnimateRotate(angle) {
+			// caching the object for performance reasons
+			var $elem = $('html');
+
+			// we use a pseudo object for the animation
+			// (starts from `0` to `angle`), you can name it as you want
+			$({deg: 0}).animate({deg: angle}, {
+				duration: 500,
+				step: function(now) {
+					// in the step-callback (that is fired each step of the animation),
+					// you can use the `now` paramter which contains the current
+					// animation-position (`0` up to `angle`)
+					$elem.css({
+						transform: 'rotateY(' + now + 'deg)'
+					});
+				}
+			});
+		}
+	</script>
+	
+	
+</head>
+<body>
+
+<div id='container'>
+	
+	<h1>Leaf It C.M.S.</h1>
+	
+	<div id='text' class='boxes'>
+		<div class='boxcontain'>
+			<div class='va'>
+				<span id='textedit'>Edit Text</span>
+			</div>
+			<div id='hugetext' class='va'>
+				<span>Go&raquo;</span>
+			</div>
+		</div>
+	</div>
+	<div id='videos' class='boxes'>
+		<div class='va'>
+			<span id='pickvid'>Pick Videos</span>
+		</div>
+	</div>
+	<div id='grants' class='boxes'>
+		<div class='boxcontain'>
+			<div class='va' id='grantmove'>
+				<span>Go &raquo;</span>
+			</div>
+			<div class='va'>
+				<span>Grant Info</span>
+			</div>
+		</div>
+	</div>
+	<div id='facts' class='boxes'>
+		<div class='boxcontain3'>
+			<div class='va2' id='factsfirstva'>
+				<span>Edit Facts</span>
+			</div>
+			<div class='va2' id='factssecva'>
+				<span>Go &raquo;</span>
+			</div>
+		</div>
+	</div>
+	<div id='slider' class='boxes'>
+		<div class='boxcontain'>
+			<div class='va' id='slidy'>
+				<span>Slider</span>
+			</div>
+			<div class='va' id='sliderslide'>
+				<span>Go &raquo;</span>
+			</div>
+		</div>
+	</div>
+	<div class='boxes longbox'>
+		<div class='boxcontain2'>
+			<div class='va3' id='upperva'>
+				<span>Sort States</span>
+			</div>
+			<div class='va3'>
+				<span>Go &raquo;</span>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+</body>
+</html>
